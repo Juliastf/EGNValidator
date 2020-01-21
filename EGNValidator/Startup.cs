@@ -38,7 +38,7 @@ namespace EGNValidator
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IValidationManager, ValidationManager>();
-            //services.AddSingleton<IHostedService, RemoveExpiredRequestsService>();
+            services.AddSingleton<IHostedService, RemoveExpiredRequestsService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
