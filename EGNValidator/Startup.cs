@@ -65,7 +65,7 @@ namespace EGNValidator
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Requests}/{action=Create}/{id?}");
+                    template: "{controller=Request}/{action=Create}/{id?}");
             });
         }
     }

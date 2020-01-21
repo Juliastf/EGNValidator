@@ -12,11 +12,11 @@ using EGNValidator.Services.Contracts;
 
 namespace EGNValidator.Controllers
 {
-    public class RequestsController : Controller
+    public class RequestController : Controller
     {
         private readonly IValidationManager _manager;
 
-        public RequestsController(IValidationManager manager)
+        public RequestController(IValidationManager manager)
         {
             _manager = manager;
 
@@ -49,12 +49,12 @@ namespace EGNValidator.Controllers
                 requestDTO.IsValid = await _manager.AddRequestToDB(requestDTO);
                 if (requestDTO.IsValid)
                 {
-                    TempData["Result"] = $"EGN {requestDTO.EGN} is Valid";
+                    TempData["ResultValid"] = $"EGN {requestDTO.EGN} is Valid";
 
                 }
                 else
                 {
-                    TempData["Result"] = $"EGN {requestDTO.EGN} is NOT Valid";
+                    TempData["ResultNotValid"] = $"EGN {requestDTO.EGN} is NOT Valid";
                 }
             }
             return View();
